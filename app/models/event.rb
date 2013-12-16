@@ -10,6 +10,12 @@ class Event
   end
   embeds_many :photos
 
+  def self.current
+    event = Event.where(active: true).first_or_create
+    event.name || event.update_attribute(:name, Date.today.to_s)
+    event
+  end
+
   def activate!
     Event.where(active: true).find_and_modify({ "$set" => { active: false }})
     update_attributes(active: true)

@@ -1,0 +1,15 @@
+<!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% Array(@photos).each.with_index do |photo, i| %>
+    <li data-target="#myCarousel" data-slide-to="<%= i %>" class="<%= 'active' if photo == @photos.first %>"></li>
+    <% end %>
+  </ol>
+  <div class="carousel-inner">
+    <% Array(@photos).each do |photo| %>
+    <div class="item <%= 'active' if photo == @photos.first %>">
+      <%= render photo %>
+    </div>
+    <% end %>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
