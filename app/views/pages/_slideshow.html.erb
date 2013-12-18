@@ -13,3 +13,8 @@
   </div>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+  <%= content_for :script do %>
+  <script type="text/javascript">
+  var photoCount = <%= Array(@photos).count %>
+  </script>
+  <% end %>

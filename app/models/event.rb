@@ -16,8 +16,19 @@ class Event
     event
   end
 
+  def sorted_photos
+    photos.order_by(:created_at.desc)
+  end
+
   def activate!
     Event.where(active: true).find_and_modify({ "$set" => { active: false }})
     update_attributes(active: true)
+  end
+
+  def add_photo filename
+    photo = photos.build
+    photo.file = File.open filename
+    photo.save
+    photo
   end
 end

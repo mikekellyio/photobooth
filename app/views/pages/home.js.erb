@@ -1,0 +1,7 @@
+if(photoCount < <%= Array(@photos).count %> ){
+  photoCount = <%= Array(@photos).count %>
+  $('#myCarousel').html('<%=j render partial: 'slideshow' %>')
+  $("#myCarousel").carousel("pause").removeData();
+  $("#myCarousel").carousel(0);
+}
+console.log(photoCount)

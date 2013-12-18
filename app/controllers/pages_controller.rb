@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @photos = Event.current.photos
+    @photos = Event.current.sorted_photos
     respond_to do |format|
       format.html
       format.js
