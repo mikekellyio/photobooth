@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  protect_from_forgery :except => :create 
   def create
     Dir.glob([Rails.root, "/ingest/**/*.jpg"].join).each do |file|
       puts "loading #{file}..."
