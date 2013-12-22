@@ -7,11 +7,32 @@
 /* Padding below the footer and lighter body text */
 
 body {
+  padding-top: 40px;
   padding-bottom: 40px;
   color: #5a5a5a;
 }
 
+.navbar-nav > li.photo > a {
+padding: 5px 5px 0;
+}
 
+#photos img{
+  padding:10px 0;
+}
+
+.navbar > .container .navbar-brand {
+background: transparent url(/assets/logo.png) no-repeat;
+background-size: 100% 38px;
+width: 280px;
+color: transparent;
+text-indent: -2000px;
+}
+
+.modal .modal-body img{
+  width: 100px;
+float: left;
+padding-right: 8px;
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -142,6 +163,12 @@ body {
   .featurette-heading {
     font-size: 50px;
   }
+
+  .navbar > .container .navbar-brand {
+    margin-left: -15px;
+  }
+
+
 
 }
 

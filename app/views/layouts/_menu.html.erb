@@ -1,7 +1,7 @@
 <div class="navbar-wrapper">
   <div class="container">
 
-    <div class="navbar  navbar-static-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -10,25 +10,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Photoemagery</a>
         </div>
-        <div class="navbar-collapse collapse">
+        <div id="main-nav" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+            <li><a href="#about" data-toggle="modal" data-target="#about">About</a></li>
+            <li><a href="#contact" data-toggle="modal" data-target="#contact">Contact</a></li>
+            <%- @photos.limit(10).each do |photo| %>
+            <li class="photo"><a href="#photo_<%=photo.id%>"><img src="<%= photo.thumb_url %>" /></a>
+            <%- end %>
           </ul>
         </div>
       </div>
@@ -36,3 +26,55 @@
 
   </div>
 </div>
+
+<%= content_for :modal do %>
+  <!-- Modal -->
+    <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="aboutLabel">About Photoemagery</h4>
+          </div>
+          <div class="modal-body">
+            <img src="/assets/headshot.jpg"/> <p>Let's see, I probably should introduce myself. I'm Mike. How are you?</p>
+
+            <p>I live in the shadow of Washington DC, in Ashburn, Va with my lovely wife, a super helpful little girl, a smiley little boy, a bright eyed baby girl, and a boisterous foxhound. I've lived in Northern Virginia pretty much my whole life.</p>
+
+            <p>I've been doing photography since 2001, but have been doing weddings since 2008. What did I shoot before that? Mainly portraits, some promotional shots for local bands, various events, that sort of thing. I decided to jump headfirst into weddings because they are a mix of all of that. Even better, I get to spend time with people on one of the happiest days of their lives, documenting it so that one day their grand-kids will be able to compare their wedding dress to grandma's.</p>
+
+            <p>On weekends when I'm not at a wedding, often I'm spending time with families or their kids capturing their ever changing smiles. I love seeing the changes in a newborn through their first year. It is completely amazing how fast they grow and change in just 12 months!</p>
+
+            <p>I love documenting people's lives and capturing moments that can be beautifully displayed in their homes for years to come. I consider the images I have of my own children priceless, and hope to provide people with images they cherish just as much.</p>
+
+            <p>My daughter has gotten to the point that she often tells me, "No Pictures!" 
+            because I can't stop taking pictures of her. And my son now makes a beeline for me if he sees me trying to take pictures of him because he wants to steal the camera! My memories are often triggered by images, so especially while my children are young I'm taking pictures constantly so that I can remember in the years to come how wonderful life is now.</p>
+
+            <p>I'd love to do the same for you.</p>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="aboutLabel">Contact me</h4>
+          </div>
+          <div class="modal-body">
+            <img src="/assets/headshot.jpg"/> Take a business card from the table! 
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+<% end %>

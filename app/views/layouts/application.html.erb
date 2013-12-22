@@ -18,7 +18,7 @@
     <![endif]-->
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#main-nav" data-offset="40">
     <%= render partial: 'layouts/menu' %>
     <%= yield %>
 
@@ -31,6 +31,8 @@
       </footer>
 
     </div><!-- /.container -->
+
+    <%= yield :modal %>
 
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= yield :script %>
