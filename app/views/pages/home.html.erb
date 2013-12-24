@@ -1,13 +1,13 @@
 <!-- Carousel 
 ================================================== -->
-<div class="container">
-  <div class="row">
-  <h2 class="col-sm-6">Most Recent Photos</h2>
-  <h2 class="col-sm-2 pull-right"><%= link_to "All Photos", photos_url, class: "" %></h2>
-  </div>
-</div>
 <div id="photos" class="container">
   <%= render partial: 'slideshow' %>
+</div>
+
+<div class="container">
+  <div class="row">
+  <h2 class="col-sm-2 pull-right"><%= link_to "All Photos", photos_url, class: "" %></h2>
+  </div>
 </div>
 
 <%= content_for :script do %>
