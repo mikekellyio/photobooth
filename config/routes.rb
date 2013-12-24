@@ -7,6 +7,9 @@ Photobooth::Application.routes.draw do
   root 'pages#home'
 
   #get 'pages#about', as: :about
-  resources :photos
+  resources :events do
+    resources :photos, shallow: true
+    put :activate, on: :member
+  end
 
 end

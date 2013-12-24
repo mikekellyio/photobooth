@@ -1,0 +1,7 @@
+<div class="container">
+  <ul class="unstyled">
+    <% @events.each do |event| %>
+      <li><%= link_to event.name, event_url(event) %> <%= "Currently active" if event.active? %></li>
+    <%-end %>
+  </ul>
+</div>
