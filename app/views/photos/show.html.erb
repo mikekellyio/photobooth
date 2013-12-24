@@ -1,0 +1,12 @@
+<div id="photos" class="container">
+  <%= render @photo %>
+</div>
+
+<%= content_for :script do %>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#photos img').addClass('loaded')
+  });
+</script>
+
+<% end %>

@@ -2,6 +2,7 @@ if(lastPhoto < <%= Event.current.sorted_photos.first.created_at.to_i %>  ){
   lastPhoto = <%= @photos.present? ? @photos.first.created_at.to_i : 0%>
 
   $('#photos').prepend('<%=j render @photos %>')
+  $('#photos img').slice(10).remove()
 
   $('#photos img').each(function(){
     $(this).load(function(){

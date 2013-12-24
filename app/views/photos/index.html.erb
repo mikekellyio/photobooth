@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>All Photos</h2>
+</div>
+
+<div id="photos" class="container">
+  <%- @photos.each do |photo| %>
+    <a href="<%= photo_url(photo) %>"><img src="<%= photo.thumb_url %>"/></a>
+  <%- end %>
+</div>
+
+<%= content_for :script do %>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#photos img').load(function(){
+    $(this).addClass('loaded')
+  })
+});
+</script>
+
+<% end %>
