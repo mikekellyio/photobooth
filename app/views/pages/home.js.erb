@@ -3,8 +3,10 @@ if(lastPhoto < <%= Event.current.sorted_photos.first.created_at.to_i %>  ){
 
   $('#photos').prepend('<%=j render @photos %>')
 
-  $('#photos img').load(function(){
-    $(this).addClass('loaded')
+  $('#photos img').each(function(){
+    $(this).load(function(){
+      $(this).addClass('loaded')
+    })
   })
 }
 console.log(photoCount)
