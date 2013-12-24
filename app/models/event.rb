@@ -44,7 +44,8 @@ class Event
     Dir.glob([Rails.root, "/ingest/**/*.jpg"].join).each do |file|
       puts "loading #{file}..."
       @photo = Event.current.add_photo file
-      File.unlink file if @photo.valid?
+      FileUtils.mv file, "ingested/" if @photo.valid?
+      #File.unlink file if @photo.valid?
     end
   end
 end
