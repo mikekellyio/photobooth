@@ -25,7 +25,7 @@ class Event
   end
 
   def more_recent_than time
-    sorted_photos.gt(created_at: Integer(time))
+    sorted_photos.gt(created_at: Integer(time)+1)
   end
 
   def activate!
