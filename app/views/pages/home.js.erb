@@ -1,5 +1,5 @@
-if(photoCount < <%= Array(@photos).count %> ){
-  photoCount = <%= Array(@photos).count %>
+if(photoCount < <%= Event.current.photos.count %> ){
+  photoCount = <%= Event.current.photos.count %>
   $('#photos').html('<%=j render partial: 'slideshow' %>')
 }
 console.log(photoCount)
