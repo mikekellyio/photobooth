@@ -1,12 +1,9 @@
 <!-- Indicators -->
-  <% @photos.each do |photo| %>
-  <div class="row">
-    <img id="photo_<%= photo.id %>" src="<%= photo.file_url %>" class="col-md-12 photo col-xs-12 col-sm-12"/>
-  </div>
-  <% end %>
+  <%= render @photos %>
 
   <%= content_for :script do %>
   <script type="text/javascript">
-  var photoCount = <%= Array(@photos).count %>
+  var lastPhoto = new Date("<%= Event.current.sorted_photos.first.created_at %>")
+  var photoCount = <%= Event.current.photos.count %>
   </script>
   <% end %>
