@@ -16,6 +16,7 @@
           <ul class="nav navbar-nav">
             <li><a href="#about" data-toggle="modal" data-target="#about">About</a></li>
             <li><a href="#contact" data-toggle="modal" data-target="#contact">Contact</a></li>
+            <li class="pull-right"><%= link_to Event.current.name, event_url(Event.current) %></li>
           </ul>
         </div>
       </div>

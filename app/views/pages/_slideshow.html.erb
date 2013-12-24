@@ -3,7 +3,7 @@
 
   <%= content_for :script do %>
   <script type="text/javascript">
-  var lastPhoto = <%= @photos.first.created_at.to_i %>
+  var lastPhoto = <%= @photos.first.present? ? @photos.first.created_at.to_i : 0 %>
   var photoCount = <%= Event.current.photos.count %>
   </script>
   <% end %>
