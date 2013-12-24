@@ -1,5 +1,10 @@
-if(photoCount < <%= Event.current.photos.count %> ){
-  photoCount = <%= Event.current.photos.count %>
-  $('#photos').html('<%=j render partial: 'slideshow' %>')
+if(lastPhoto < <%= Event.current.sorted_photos.first.created_at.to_i %>  ){
+  lastPhoto = <%= @photos.present? ? @photos.first.created_at.to_i : 0%>
+
+  $('#photos').prepend('<%=j render @photos %>')
+
+  $('#photos img').load(function(){
+    $(this).addClass('loaded')
+  })
 }
 console.log(photoCount)

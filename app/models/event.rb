@@ -20,6 +20,14 @@ class Event
     photos.order_by(:created_at.desc)
   end
 
+  def most_recent_time
+    sorted_photos.first.created_at
+  end
+
+  def more_recent_than time
+    sorted_photos.gt(created_at: Integer(time))
+  end
+
   def activate!
     Event.where(active: true).find_and_modify({ "$set" => { active: false }})
     update_attributes(active: true)

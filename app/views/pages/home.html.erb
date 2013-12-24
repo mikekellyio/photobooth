@@ -8,8 +8,11 @@
 <script type="text/javascript">
 $(document).ready(function() {
     var refreshId = setInterval( function() {
-        $.getScript("<%= root_url %>")
+        $.getScript("<%= root_url %>?lastPhoto="+lastPhoto)
     }, 5000);
+    $('#photos img').load(function(){
+    $(this).addClass('loaded')
+  })
 });
 </script>
 
