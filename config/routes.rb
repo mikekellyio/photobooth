@@ -12,4 +12,6 @@ Photobooth::Application.routes.draw do
     put :activate, on: :member
   end
 
+  post "photos/", to: "photos#create"
+
 end
