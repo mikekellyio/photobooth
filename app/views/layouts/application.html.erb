@@ -18,7 +18,7 @@
     <![endif]-->
     <%= csrf_meta_tags %>
   </head>
-  <body data-spy="scroll" data-target="#main-nav" data-offset="40">
+  <body>
     <%= render partial: 'layouts/menu' %>
     <%= yield %>
 
@@ -38,9 +38,3 @@
     <%= yield :script %>
   </body>
 </html>
-
-    
-
-
-    
-
