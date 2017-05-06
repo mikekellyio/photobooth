@@ -1,7 +1,7 @@
 require 'pi_piper'
 include PiPiper
 
-LIGHT = 4 
+LIGHT = 4
 BUTTON = 17
 
 `rm gpio.lock`
@@ -26,7 +26,7 @@ watch :pin => BUTTON do
 	flash pin, 1
 	flash pin, 4, 0.25
 	pin.on
-	system("/home/pi/photobooth/capture.sh") 
+	system("/home/pi/photobooth/capture.sh")
 	p1 = fork { system("/home/pi/photobooth/upload.sh") }
 	Process.detach(p1)
 	pin.off

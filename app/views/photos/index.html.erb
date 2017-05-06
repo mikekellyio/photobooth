@@ -4,9 +4,7 @@
 </div>
 
 <div id="photos" class="container">
-  <%- @photos.each do |photo| %>
-    <a href="<%= photo_url(photo) %>"><img src="<%= photo.thumb_url %>"/></a>
-  <%- end %>
+  <%= render @photos %>
   <%= link_to "Edit #{@event.name}", edit_event_url(@event) %>
 </div>
 
